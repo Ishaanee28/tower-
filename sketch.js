@@ -7,7 +7,7 @@ var engine, world;
 var holder,ball,ground;
 var stand1,stand2;
 var ball;
-var slingShot;
+var slingshot;//changing to slingshot earlier it was slingShot
 var polygon_img;
 var polygon;
 function preload(){
@@ -24,7 +24,6 @@ function setup() {
  
   //level one
   block1 = new Block(300,275,30,40);
-  console.log(block1);
   block2 = new Block(330,275,30,40);
   block3 = new Block(360,275,30,40);
   block4 = new Block(390,275,30,40);
@@ -57,15 +56,16 @@ block25=new Block(720,115,30,40);
 //block26=new Block(750,115,30,40);
   //level three
   block27=new Block(690,75,30,40);
-polygon=Bodies.circle(35,200,10)
+polygon=Bodies.circle(35,200,10,10)
 World.add(world,polygon);
 slingshot=new SlingShot(this.polygon,{x:35,y:150})
+console.log(slingshot)
 }
 function mouseDragged(){
   Matter.Body.setPosition(this.polygon, {x: mouseX , y: mouseY});
 }
 function mouseReleased(){
-
+slingshot.fly()//adding slingshot.fly() function when mouse is release
 }
 function draw() {
   background(56,44,44); 
@@ -111,6 +111,5 @@ block24.display();
 block25.display();
 //block26.display();
 block27.display();
-mouseDragged();
 image(polygon_img,polygon.position.x,polygon.position.y,20,30);
 }
