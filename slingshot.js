@@ -6,8 +6,6 @@ class SlingShot{
             stiffness: 0.04,
             length: 10
         }
-       
-       
         this.sling = Constraint.create(options);
         this.pointB = pointB
         World.add(world, this.sling);
@@ -21,9 +19,7 @@ class SlingShot{
     }
 
     display(){
-       if(this.sling.bodyA){
-
-       
+       if(this.sling.bodyA){       
             var pointA = this.sling.bodyA.position;
             var pointB = this.pointB;
             line(pointA.x,pointA.y,pointB.x,pointB.y)
